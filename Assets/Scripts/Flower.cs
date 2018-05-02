@@ -6,42 +6,46 @@ public class Flower : MonoBehaviour {
 
 	
 	// Use this for initialization
-	private enum States {OnFire, Idle, Burned};
+	enum States {OnFire, Idle, Burned};
 	private string tagCheck = "flammable";
-	private States currentState;
-	[SerializeField] int interval = 5;
+	[SerializeField] States currentState;
+	[SerializeField] int interval = 2;
 	[SerializeField] int repetition = 3;
 	[SerializeField] int sphereHeight = 10;
 	private RaycastHit[] hit; 
 	public Material green;
 	public Material flame;
 	public Material burned;
-	// coroutine pointer
+	
+	// coroutine pointer for start and stop of coroutine
 	private IEnumerator spreadCoroutine;
 
 	public void SetFire(){
 		// Set fire
-		currentState = States.OnFire;
+		Renderer rend = GetComponent<Renderer>();
+		rend.material = flame;
+		print("fire!");
 		spreadCoroutine = SpreadFire(interval,repetition);
+		StartCoroutine(SpreadFire(interval, repetition));
 		// Burn after X seconds
 	}
 
-	public void extinguishFire(){
-		currentState = States.Burned;
-	}
-
-	private void changeMaterial(){
-
+	public void ExtinguishFire(){
+		Renderer rend = GetComponent<Renderer>();
+		rend.material = burned;
+		print("burned!");		
+		if(spreadCoroutine != null){
+			StopCoroutine(spreadCoroutine);
+		}
 	}
 
 	IEnumerator SpreadFire(int interval, int repetition){
 		while (repetition > 0)
 		{
-			 var direction1 = Quaternion.AngleAxis(30, transform.up) * transform.forward;
-			 var direction = Quaternion.AngleAxis(30, transform.up) * transform.forward;
-			// if (Physics.SphereCast(transform.position, sphereHeight, transform.forward, out hit,20) && hit.transform.tag == tagCheck && attacking)
-			// {
-			// }
+			print("cycle" + repetition.ToString());
+			var direction = Quaternion.AngleAxis(30, transform.up) * transform.forward;
+			Debug.DrawRay(transform.position, direction, Color.red,15);
+			Debug.DrawRay(transform.position, Vector3.forward, Color.red,15);
 			RaycastHit[] hits = Physics.SphereCastAll(transform.position, sphereHeight, direction, 10);
 			foreach (var hit in hits)
 			{
@@ -54,6 +58,9 @@ public class Flower : MonoBehaviour {
 			repetition--;
 		}
 		currentState = States.Burned;
+		print("burned");
+		Renderer rend = GetComponent<Renderer>();
+		rend.material = burned;
 		yield break;
 	}
 
@@ -65,6 +72,21 @@ public class Flower : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		var forward = transform.TransformDirection(Vector3.forward) * 10;
+		Debug.DrawRay (transform.position, Vector3.forward * 100000000, Color.red);
+		switch (currentState)
+		{
+			case States.OnFire:
+				SetFire();
+				Debug.DrawRay(transform.position, forward, Color.red,15, false);
+				break;
+			case States.Burned:
+				ExtinguishFire();
+				break;
+			case States.Idle:
+				print("idle!");
+				break;
+			
+		}
 	}
 }
