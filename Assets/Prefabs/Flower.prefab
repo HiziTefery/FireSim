@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33512581442916282}
   - component: {fileID: 65218428371820794}
   - component: {fileID: 23463377104381930}
+  - component: {fileID: 54023223253752902}
   m_Layer: 0
   m_Name: Flower
   m_TagString: Untagged
@@ -36,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1744424667882942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 146.48405, y: 44.9, z: 39.91104}
-  m_LocalScale: {x: 6.835256, y: 6.8352594, z: 6.8352594}
+  m_LocalPosition: {x: 146.48405, y: 18.5, z: 39.91104}
+  m_LocalScale: {x: 13.488873, y: 13.488875, z: 13.488875}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -83,6 +84,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1744424667882942}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54023223253752902
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1744424667882942}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &65218428371820794
 BoxCollider:
   m_ObjectHideFlags: 1
