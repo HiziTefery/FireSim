@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flower : MonoBehaviour {
+public class Flammable : MonoBehaviour {
 
 	
 	// Use this for initialization
@@ -12,6 +12,8 @@ public class Flower : MonoBehaviour {
 	[SerializeField] int interval = 2;
 	[SerializeField] int repetition = 3;
 	[SerializeField] int sphereHeight = 10;
+	[SerializeField] int angle = 0;
+	private bool coroutineStarted = false;
 	private RaycastHit[] hit; 
 	public Material green;
 	public Material flame;
@@ -22,11 +24,7 @@ public class Flower : MonoBehaviour {
 
 	public void SetFire(){
 		// Set fire
-		Renderer rend = GetComponent<Renderer>();
-		rend.material = flame;
-		print("fire!");
-		spreadCoroutine = SpreadFire(interval,repetition);
-		StartCoroutine(SpreadFire(interval, repetition));
+		currentState = States.OnFire;
 		// Burn after X seconds
 	}
 
@@ -39,22 +37,24 @@ public class Flower : MonoBehaviour {
 		}
 	}
 
-	IEnumerator SpreadFire(int interval, int repetition){
+	IEnumerator SpreadFire(int angle, int interval, int repetition){
+		coroutineStarted = true;
 		while (repetition > 0)
-		{
+		{	
+			yield return new WaitForSeconds(interval);
 			print("cycle" + repetition.ToString());
-			var direction = Quaternion.AngleAxis(30, transform.up) * transform.forward;
-			Debug.DrawRay(transform.position, direction, Color.red,15);
-			Debug.DrawRay(transform.position, Vector3.forward, Color.red,15);
-			RaycastHit[] hits = Physics.SphereCastAll(transform.position, sphereHeight, direction, 10);
+			var direction = Quaternion.AngleAxis(-angle + 90, transform.up) * transform.forward;
+			RaycastHit[] hits = Physics.SphereCastAll(transform.position, sphereHeight, direction, 1000);
+			print("Number of hits: " + hits.Length.ToString());
 			foreach (var hit in hits)
 			{
+				print("distance to target: " + hit.distance.ToString());
 				if (hit.transform.tag == tagCheck)
 				{
+					print("distance to target: " + hit.distance.ToString());
 					hit.transform.gameObject.SendMessage("SetFire");
 				}
 			}
-			yield return new WaitForSeconds(interval);
 			repetition--;
 		}
 		currentState = States.Burned;
@@ -72,13 +72,20 @@ public class Flower : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		var forward = transform.TransformDirection(Vector3.forward) * 10;
-		Debug.DrawRay (transform.position, Vector3.forward * 100000000, Color.red);
+		Vector3 noAngle = transform.forward;
+		var direction = Quaternion.AngleAxis(-angle + 90 , transform.up) * transform.forward;
+		Debug.DrawRay(transform.position, direction * 100, Color.red,1000000);
 		switch (currentState)
 		{
 			case States.OnFire:
-				SetFire();
-				Debug.DrawRay(transform.position, forward, Color.red,15, false);
+				if (!coroutineStarted){
+					Renderer rend = GetComponent<Renderer>();
+					rend.material = flame;
+					print("fire!");
+					spreadCoroutine = SpreadFire(angle, interval, repetition);
+					StartCoroutine(SpreadFire(angle, interval, repetition));
+				}
+				// Debug.DrawRay(transform.position, forward, Color.red,15, false);
 				break;
 			case States.Burned:
 				ExtinguishFire();
@@ -87,6 +94,7 @@ public class Flower : MonoBehaviour {
 				print("idle!");
 				break;
 			
+
 		}
 	}
 }

@@ -38,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1744424667882942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 146.48405, y: 13.9, z: 39.91104}
-  m_LocalScale: {x: 6.436169, y: 6.4361706, z: 6.4361706}
+  m_LocalPosition: {x: 126.76, y: 9.89, z: 38.07}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -123,9 +123,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1edd0c9fc7a974be2a3176044768de23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
   interval: 5
   repetition: 3
   sphereHeight: 10
+  angle: 0
   green: {fileID: 2100000, guid: 51e5355d7cc42448a8c5297ce60d0804, type: 2}
   flame: {fileID: 2100000, guid: 894d120b6fe364520a19857dd02cfbbf, type: 2}
   burned: {fileID: 2100000, guid: 73b7cc72b213f48b0beeb8b2ed84df91, type: 2}
