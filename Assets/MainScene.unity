@@ -172,7 +172,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 205375955}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 124, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -187,7 +187,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4425412704776122, guid: b6f726a4d427e42bfbc791f3f3cdd62e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 146.48405
+      value: -27
       objectReference: {fileID: 0}
     - target: {fileID: 4425412704776122, guid: b6f726a4d427e42bfbc791f3f3cdd62e, type: 2}
       propertyPath: m_LocalPosition.y
@@ -195,7 +195,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4425412704776122, guid: b6f726a4d427e42bfbc791f3f3cdd62e, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 39.91104
+      value: 114
       objectReference: {fileID: 0}
     - target: {fileID: 4425412704776122, guid: b6f726a4d427e42bfbc791f3f3cdd62e, type: 2}
       propertyPath: m_LocalRotation.x
@@ -235,6 +235,7 @@ GameObject:
   - component: {fileID: 952960636}
   - component: {fileID: 952960635}
   - component: {fileID: 952960634}
+  - component: {fileID: 952960638}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -274,7 +275,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 40
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -298,13 +299,30 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 952960633}
-  m_LocalRotation: {x: 0.07709509, y: -0.9225235, z: 0.25263923, w: 0.28138974}
-  m_LocalPosition: {x: 157.83047, y: 31.408155, z: 74.4645}
+  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 262, y: 159.2, z: -35.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
+--- !u!114 &952960638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 952960633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a78e8fcfbb5c23458418eecc84efa7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panSpeed: 200
+  panBorderThickness: 10
+  panLimit: {x: 150, y: 160}
+  scrollSpeed: 200
+  minY: 40
+  maxY: 250
 --- !u!1 &1075067793
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,7 +345,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1075067793}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 232.4306, y: 308.495, z: 130.04224}
+  m_LocalPosition: {x: 356.4306, y: 308.495, z: 130.04224}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -398,7 +416,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1244614573}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -89, y: 0, z: -168}
+  m_LocalPosition: {x: -249, y: 0, z: -142}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -413,7 +431,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4425412704776122, guid: b6f726a4d427e42bfbc791f3f3cdd62e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 126.8
+      value: -46.684067
       objectReference: {fileID: 0}
     - target: {fileID: 4425412704776122, guid: b6f726a4d427e42bfbc791f3f3cdd62e, type: 2}
       propertyPath: m_LocalPosition.y
@@ -421,7 +439,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4425412704776122, guid: b6f726a4d427e42bfbc791f3f3cdd62e, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 48.7
+      value: 122.788956
       objectReference: {fileID: 0}
     - target: {fileID: 4425412704776122, guid: b6f726a4d427e42bfbc791f3f3cdd62e, type: 2}
       propertyPath: m_LocalRotation.x

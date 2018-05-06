@@ -4,13 +4,25 @@ using UnityEngine;
 
 public class FireManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	public List<GameObject> flammables = new List<GameObject>();
+
+	public void removeFlamable(Flammable obj){
+
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public void addFlammable(Flammable obj){
+
+	}
+
+	public void resetFlammables(){
+
+	}
+
+	public void modifyWindSpeed(){
+
+	}
+
+	public void modifyWindDirection(){
+
 	}
 }
