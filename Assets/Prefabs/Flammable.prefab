@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 54023223253752902}
   - component: {fileID: 114973036537391208}
   m_Layer: 0
-  m_Name: Flower
+  m_Name: Flammable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -6,16 +6,20 @@ public class FireManager : MonoBehaviour {
 
 	public List<GameObject> flammables = new List<GameObject>();
 
-	public void removeFlamable(Flammable obj){
+	private void Start() {
+		Object flowerPrefab = Resources.Load("Prefabs/flower", typeof(GameObject));
+	}
 
+	public void removeFlamable(Flammable obj){
+		
 	}
 
 	public void addFlammable(Flammable obj){
 
 	}
 
-	public void resetFlammables(){
-
+	public void toggleFire(Flammable obj){
+		
 	}
 
 	public void modifyWindSpeed(){
@@ -23,6 +27,14 @@ public class FireManager : MonoBehaviour {
 	}
 
 	public void modifyWindDirection(){
+
+	}
+
+	public void clearFlammables(){
+
+	}
+
+	public void generateFlammables(){
 
 	}
 }

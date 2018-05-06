@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour {
 
 	public float scrollSpeed = 200.0f;
 
-	public float minY = 20f;
+	public float minY = 100f;
 
 	public float maxY = 300;
 
