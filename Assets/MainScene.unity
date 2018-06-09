@@ -171,7 +171,7 @@ MonoBehaviour:
   - {fileID: 1293214752}
   - {fileID: 1818901858}
   - {fileID: 833368192}
-  flammable: {fileID: 0}
+  flammable: {fileID: 1744424667882942, guid: b6f726a4d427e42bfbc791f3f3cdd62e, type: 2}
   clones: []
 --- !u!4 &82496155
 Transform:
@@ -485,7 +485,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4425412704776122, guid: b6f726a4d427e42bfbc791f3f3cdd62e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -198.69499
+      value: -201.2
       objectReference: {fileID: 0}
     - target: {fileID: 4425412704776122, guid: b6f726a4d427e42bfbc791f3f3cdd62e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1100,7 +1100,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4425412704776122, guid: b6f726a4d427e42bfbc791f3f3cdd62e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -197.595
+      value: -199.67
       objectReference: {fileID: 0}
     - target: {fileID: 4425412704776122, guid: b6f726a4d427e42bfbc791f3f3cdd62e, type: 2}
       propertyPath: m_LocalPosition.z
